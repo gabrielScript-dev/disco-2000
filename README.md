@@ -4,12 +4,12 @@ O Disco 2000 é um programa em C que gerencia uma coleção de discos de vinil. 
 # Compilação e Execução
 Para compilar o programa, você pode usar um compilador C como o GCC. Por exemplo:
 
-"""
+```
 gcc main.c -o main
-"""
+```
 
 Após a compilação, execute o programa:
 
-"""
+```
 ./main
-"""
+```
