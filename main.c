@@ -28,7 +28,7 @@ No* criarNo(Vinil dados)
     No* novoNo = (No*)malloc(sizeof(No));
     if (novoNo == NULL)
     {
-        printf("Erro ao alocar memÛria para o nÛ.\n");
+        printf("Erro ao alocar mem√≥ria para o n√≥.\n");
         exit(EXIT_FAILURE);
     }
     novoNo->dados = dados;
@@ -60,11 +60,11 @@ No* buscarNo(ListaEncadeada* lista, char nomeArtista[50], char nomeAlbum[50])
         if (strcmp(atual->dados.artista, nomeArtista) == 0 &&
                 strcmp(atual->dados.album, nomeAlbum) == 0)
         {
-            return atual; // NÛ encontrado
+            return atual; // N√≥ encontrado
         }
         atual = atual->proximo;
     }
-    return NULL; // NÛ n„o encontrado
+    return NULL; // N√≥ n√£o encontrado
 }
 
 void excluirNo(ListaEncadeada* lista, char nomeArtista[50], char nomeAlbum[50])
@@ -91,11 +91,11 @@ void excluirNo(ListaEncadeada* lista, char nomeArtista[50], char nomeAlbum[50])
         }
         free(atual);
         lista->tamanho--;
-        printf("Vinil excluÌdo com sucesso!\n");
+        printf("Vinil exclu√≠do com sucesso!\n");
     }
     else
     {
-        printf("Vinil n„o encontrado na lista.\n");
+        printf("Vinil n√£o encontrado na lista.\n");
     }
 }
 
@@ -110,7 +110,7 @@ void atualizarNo(ListaEncadeada* lista, char nomeArtista[50], char nomeAlbum[50]
     }
     else
     {
-        printf("Vinil n„o encontrado na lista.\n");
+        printf("Vinil n√£o encontrado na lista.\n");
     }
 }
 
@@ -118,8 +118,8 @@ void atualizarNo(ListaEncadeada* lista, char nomeArtista[50], char nomeAlbum[50]
 void imprimirVinil(No* vinil)
 {
     printf("Artista: %s\n", vinil->dados.artista);
-    printf("¡lbum: %s\n", vinil->dados.album);
-    printf("GÍnero: %s\n", vinil->dados.genero);
+    printf("√Ålbum: %s\n", vinil->dados.album);
+    printf("G√™nero: %s\n", vinil->dados.genero);
     printf("Ano: %d\n", vinil->dados.ano);
 }
 
@@ -129,8 +129,8 @@ void exibirLista(ListaEncadeada* lista)
     while (atual != NULL)
     {
         printf("Artista: %s\n", atual->dados.artista);
-        printf("¡lbum: %s\n", atual->dados.album);
-        printf("GÍnero: %s\n", atual->dados.genero);
+        printf("√Ålbum: %s\n", atual->dados.album);
+        printf("G√™nero: %s\n", atual->dados.genero);
         printf("Ano: %d\n--\n\n", atual->dados.ano);
         atual = atual->proximo;
     }
@@ -232,7 +232,7 @@ int main()
         printf("\t\t\t\t\t0. Sair\n");
 
         fflush(stdin);
-        printf("\n\n\t\t\t\t\tEscolha uma opÁ„o: ");
+        printf("\n\n\t\t\t\t\tEscolha uma op√ß√£o: ");
         scanf("%d", &opcao);
 
 
@@ -250,7 +250,7 @@ int main()
                 gets(novosDados.artista);
 
                 if(strlen(novosDados.artista) == 0) {
-                    printf("Nome de artista inv·lido! Preencha o campo, por favor!\n\n");
+                    printf("Nome de artista inv√°lido! Preencha o campo, por favor!\n\n");
                 } else {
                     break;
                 }
@@ -259,17 +259,19 @@ int main()
 
             do {
                 fflush(stdin);
-                printf("¡lbum: ");
+                printf("√Ålbum: ");
                 gets(novosDados.album);
 
                 if(strlen(novosDados.artista) == 0) {
-                    printf("Nome de ·lbum inv·lido! Preencha o campo, por favor!\n\n");
+                    printf("Nome de √°lbum inv√°lido! Preencha o campo, por favor!\n\n");
+                } else {
+                    break;
                 }
             } while(1);
 
 
             fflush(stdin);
-            printf("GÍnero: ");
+            printf("G√™nero: ");
             gets(novosDados.genero);
 
             fflush(stdin);
@@ -281,14 +283,14 @@ int main()
             break;
         case 2:
             printf("Tamanho: %d\n", listaVinis.tamanho);
-            printf("Informe o Artista e o ¡lbum para buscar:\n");
+            printf("Informe o Artista e o √Ålbum para buscar:\n");
 
             fflush(stdin);
             printf("Artista: ");
             gets(nomeArtista);
 
             fflush(stdin);
-            printf("¡lbum: ");
+            printf("√Ålbum: ");
             gets(nomeAlbum);
 
             No* noBuscado = buscarNo(&listaVinis, nomeArtista, nomeAlbum);
@@ -300,19 +302,19 @@ int main()
             }
             else
             {
-                printf("Vinil n„o encontrado na lista.\n");
+                printf("Vinil n√£o encontrado na lista.\n");
             }
 
             break;
         case 3:
-            printf("Informe o Artista e o ¡lbum para atualizar:\n");
+            printf("Informe o Artista e o √Ålbum para atualizar:\n");
 
             fflush(stdin);
             printf("Artista: ");
             gets(nomeArtista);
 
             fflush(stdin);
-            printf("¡lbum: ");
+            printf("√Ålbum: ");
             gets(nomeAlbum);
 
             No* no = buscarNo(&listaVinis, nomeArtista, nomeAlbum);
@@ -331,11 +333,11 @@ int main()
                 gets(novosDados.artista);
 
                 fflush(stdin);
-                printf("¡lbum: ");
+                printf("√Ålbum: ");
                 gets(novosDados.album);
 
                 fflush(stdin);
-                printf("GÍnero: ");
+                printf("G√™nero: ");
                 gets(novosDados.genero);
 
                 fflush(stdin);
@@ -346,14 +348,14 @@ int main()
             }
             break;
         case 4:
-            printf("Informe o Artista e o ¡lbum para excluir:\n");
+            printf("Informe o Artista e o √Ålbum para excluir:\n");
 
             fflush(stdin);
             printf("Artista: ");
             gets(nomeArtista);
 
             fflush(stdin);
-            printf("¡lbum: ");
+            printf("√Ålbum: ");
             gets(nomeAlbum);
 
             excluirNo(&listaVinis, nomeArtista, nomeAlbum);
@@ -364,11 +366,11 @@ int main()
             system("pause");
             break;
         case 0:
-            printf("Saindo do programa. Liberando memÛria...\n");
+            printf("Saindo do programa. Liberando mem√≥ria...\n");
             system("pause");
             break;
         default:
-            printf("\t\t\t\tOpÁ„o inv·lida. Tente novamente.\n\n");
+            printf("\t\t\t\tOp√ß√£o inv√°lida. Tente novamente.\n\n");
             system("pause");
         }
 
@@ -376,7 +378,7 @@ int main()
     }
     while (opcao != 0);
 
-    // Liberar a memÛria alocada para a lista antes de encerrar o programa
+    // Liberar a mem√≥ria alocada para a lista antes de encerrar o programa
     gravarRegistro(&listaVinis);
     liberarLista(&listaVinis);
 
